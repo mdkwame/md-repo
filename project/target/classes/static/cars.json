@@ -1,0 +1,50 @@
+[
+  {
+    "id": "C001",
+    "brand": "Toyota",
+    "model": "Camry",
+    "type": "Sedan",
+    "location": "NYC",
+    "pricePerDay": 45.99,
+    "availableCount": 8,
+    "features": "GPS, Bluetooth, AC",
+    "seats": 5,
+    "fuelType": "Gasoline"
+  },
+  {
+    "id": "C002",
+    "brand": "Honda",
+    "model": "CR-V",
+    "type": "SUV",
+    "location": "NYC",
+    "pricePerDay": 65.99,
+    "availableCount": 4,
+    "features": "AWD, GPS, Bluetooth",
+    "seats": 7,
+    "fuelType": "Hybrid"
+  },
+  {
+    "id": "C003",
+    "brand": "Ford",
+    "model": "Mustang",
+    "type": "Sports",
+    "location": "MIA",
+    "pricePerDay": 89.99,
+    "availableCount": 2,
+    "features": "Convertible, Premium Sound",
+    "seats": 4,
+    "fuelType": "Gasoline"
+  },
+  {
+    "id": "C004",
+    "brand": "Nissan",
+    "model": "Altima",
+    "type": "Sedan",
+    "location": "LAX",
+    "pricePerDay": 39.99,
+    "availableCount": 12,
+    "features": "GPS, Bluetooth",
+    "seats": 5,
+    "fuelType": "Gasoline"
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "id": "F001",
+    "airline": "Voyageur Airways",
+    "flightNumber": "VA101",
+    "from": "NYC",
+    "to": "LAX",
+    "departureTime": "08:00",
+    "arrivalTime": "11:30",
+    "price": 299.99,
+    "availableSeats": 45,
+    "aircraft": "Boeing 737",
+    "duration": 330
+  },
+  {
+    "id": "F002",
+    "airline": "Sky Express",
+    "flightNumber": "SE205",
+    "from": "NYC",
+    "to": "MIA",
+    "departureTime": "14:15",
+    "arrivalTime": "17:45",
+    "price": 189.99,
+    "availableSeats": 23,
+    "aircraft": "Airbus A320",
+    "duration": 180
+  },
+  {
+    "id": "F003",
+    "airline": "Global Wings",
+    "flightNumber": "GW350",
+    "from": "LAX",
+    "to": "NYC",
+    "departureTime": "19:30",
+    "arrivalTime": "05:15",
+    "price": 349.99,
+    "availableSeats": 67,
+    "aircraft": "Boeing 777",
+    "duration": 285
+  },
+  {
+    "id": "F004",
+    "airline": "Budget Air",
+    "flightNumber": "BA99",
+    "from": "CHI",
+    "to": "LAX",
+    "departureTime": "12:00",
+    "arrivalTime": "14:30",
+    "price": 149.99,
+    "availableSeats": 12,
+    "aircraft": "Boeing 737",
+    "duration": 270
+  }
+]

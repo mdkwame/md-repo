@@ -1,0 +1,46 @@
+[
+  {
+    "id": "A001",
+    "name": "Central Park Walking Tour",
+    "location": "NYC",
+    "category": "Sightseeing",
+    "price": 25.99,
+    "availableSlots": 20,
+    "description": "Guided tour through Central Park",
+    "duration": 2,
+    "rating": 4.5
+  },
+  {
+    "id": "A002",
+    "name": "Broadway Show",
+    "location": "NYC",
+    "category": "Entertainment",
+    "price": 89.99,
+    "availableSlots": 45,
+    "description": "Popular Broadway musical",
+    "duration": 3,
+    "rating": 4.9
+  },
+  {
+    "id": "A003",
+    "name": "Beach Volleyball",
+    "location": "MIA",
+    "category": "Sports",
+    "price": 15.99,
+    "availableSlots": 12,
+    "description": "Fun beach volleyball session",
+    "duration": 2,
+    "rating": 4.3
+  },
+  {
+    "id": "A004",
+    "name": "Art Museum Visit",
+    "location": "CHI",
+    "category": "Culture",
+    "price": 19.99,
+    "availableSlots": 30,
+    "description": "Visit to famous art museum",
+    "duration": 4,
+    "rating": 4.7
+  }
+]

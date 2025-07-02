@@ -1,0 +1,46 @@
+[
+  {
+    "id": "H001",
+    "name": "Grand Voyageur Hotel",
+    "location": "NYC",
+    "address": "123 Broadway, New York, NY",
+    "stars": 5,
+    "pricePerNight": 299.99,
+    "availableRooms": 15,
+    "amenities": "WiFi, Pool, Gym, Spa",
+    "rating": 4.8
+  },
+  {
+    "id": "H002",
+    "name": "Budget Stay Inn",
+    "location": "NYC",
+    "address": "456 5th Ave, New York, NY",
+    "stars": 3,
+    "pricePerNight": 99.99,
+    "availableRooms": 8,
+    "amenities": "WiFi, Breakfast",
+    "rating": 4.2
+  },
+  {
+    "id": "H003",
+    "name": "Sunset Resort",
+    "location": "MIA",
+    "address": "789 Ocean Drive, Miami, FL",
+    "stars": 4,
+    "pricePerNight": 199.99,
+    "availableRooms": 22,
+    "amenities": "Beach Access, Pool, Restaurant",
+    "rating": 4.6
+  },
+  {
+    "id": "H004",
+    "name": "City Center Lodge",
+    "location": "CHI",
+    "address": "321 Michigan Ave, Chicago, IL",
+    "stars": 3,
+    "pricePerNight": 129.99,
+    "availableRooms": 5,
+    "amenities": "WiFi, Business Center",
+    "rating": 4.0
+  }
+]

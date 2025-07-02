@@ -1,173 +1,142 @@
-# Booking System Backend
+# Voyageur Mock Backend 🚀
 
-A Spring Boot REST API backend for a mock booking system that provides endpoints for searching and booking flights, hotels, cars, and activities.
+A simple Spring Boot mock backend for the Voyageur travel booking app (Trip.com clone).
 
-## Project Overview
+## Features ✅
 
-This is a mock booking system backend built with Spring Boot that simulates third-party booking APIs. It provides RESTful endpoints for searching and reserving various travel services without requiring actual external API integrations.
+- **Mock Services**: Flights, Hotels, Cars, Activities
+- **Search & Filtering**: By location, price, type, etc.
+- **Availability Checking**: Real-time inventory management
+- **Booking Simulation**: Simple booking with inventory updates
+- **API Documentation**: Built-in Swagger UI
+- **Student-Friendly**: Clean, simple code structure
 
-## Project Structure
+## Quick Start 🏃‍♂️
 
-### Root Configuration Files
+1. **Run the application**:
+   ```bash
+   ./mvnw spring-boot:run
+   ```
 
-#### `pom.xml`
-Maven project configuration file that defines:
-- Project metadata (groupId, artifactId, version)
-- Spring Boot parent dependency (version 3.2.0)
-- Required dependencies:
-  - `spring-boot-starter-web` - Web MVC framework
-  - `spring-boot-starter-validation` - Bean validation
-  - `jackson-databind` - JSON serialization/deserialization
-  - `spring-boot-starter-test` - Testing framework
-- Build plugins for Maven compilation and Spring Boot packaging
+2. **Access the API**:
+   - Main URL: http://localhost:8080
+   - Swagger UI: http://localhost:8080/swagger-ui.html
+   - API Docs: http://localhost:8080/api-docs
 
-### Source Code Structure
+## API Endpoints 📋
 
-#### Main Application
-- **`src/main/java/com/bookingsystem/BookingSystemApplication.java`**
-  - Main Spring Boot application entry point
-  - Contains the `@SpringBootApplication` annotation
-  - Runs the embedded Tomcat server and initializes the Spring context
+### Flights ✈️
+- `GET /flights` - Get all flights
+- `GET /flights?from=NYC&to=LAX&sort=price_asc` - Search flights
+- `GET /flights/availability?id=F001` - Check availability
+- `POST /flights/book?id=F001` - Book flight
 
-#### Controllers (`src/main/java/com/bookingsystem/controller/`)
-REST API controllers that handle HTTP requests and responses:
+### Hotels 🏨
+- `GET /hotels` - Get all hotels
+- `GET /hotels?location=NYC&minStars=4&sort=rating_desc` - Search hotels
+- `GET /hotels/availability?id=H001` - Check availability
+- `POST /hotels/book?id=H001` - Book hotel
 
-- **`ActivityController.java`**
-  - Handles activity-related endpoints (`/api/activities`)
-  - Search activities by city, category, price, difficulty
-  - Get activity details, check availability, make reservations
+### Cars 🚗
+- `GET /cars` - Get all cars
+- `GET /cars?location=NYC&type=SUV&sort=price_asc` - Search cars
+- `GET /cars/availability?id=C001` - Check availability
+- `POST /cars/book?id=C001` - Book car
 
-- **`CarController.java`**
-  - Manages car rental endpoints (`/api/cars`)
-  - Search cars by location, category, price, fuel type
-  - Get car details, check availability, make reservations
+### Activities 🎯
+- `GET /activities` - Get all activities
+- `GET /activities?location=NYC&category=Entertainment` - Search activities
+- `GET /activities/availability?id=A001` - Check availability
+- `POST /activities/book?id=A001` - Book activity
 
-- **`FlightController.java`**
-  - Handles flight booking endpoints (`/api/flights`)
-  - Search flights by departure/arrival cities, dates, price, airline
-  - Get flight details, check seat availability, make reservations
+### Unified Search 🔍
+- `GET /search?type=all&location=NYC` - Search everything
+- `GET /search?type=hotel&location=MIA&sort=price_asc` - Search specific type
 
-- **`HotelController.java`**
-  - Manages hotel booking endpoints (`/api/hotels`)
-  - Search hotels by city, dates, price, rating
-  - Get hotel details, check room availability, make reservations
+## Sample Requests 💡
 
-#### Models (`src/main/java/com/bookingsystem/model/`)
-Data models representing the core entities:
+```bash
+# Get all flights from NYC to LAX
+curl "http://localhost:8080/flights?from=NYC&to=LAX"
 
-- **`Activity.java`**
-  - Represents tourist activities and experiences
-  - Fields: ID, name, category, city, price, available spots, duration, rating, etc.
+# Search hotels in NYC, 4+ stars, sorted by rating
+curl "http://localhost:8080/hotels?location=NYC&minStars=4&sort=rating_desc"
 
-- **`Car.java`**
-  - Represents rental cars
-  - Fields: ID, brand, model, category, price per day, fuel type, transmission, etc.
+# Check if flight F001 is available
+curl "http://localhost:8080/flights/availability?id=F001"
 
-- **`Flight.java`**
-  - Represents flight bookings
-  - Fields: ID, airline, flight number, departure/arrival info, price, available seats, etc.
-  - Uses `@JsonFormat` for date/time serialization
+# Book a hotel room
+curl -X POST "http://localhost:8080/hotels/book?id=H001"
 
-- **`Hotel.java`**
-  - Represents hotel accommodations
-  - Fields: ID, name, city, address, rating, price per night, amenities, etc.
+# Search everything in NYC
+curl "http://localhost:8080/search?location=NYC"
+```
 
-#### Services (`src/main/java/com/bookingsystem/service/`)
-Business logic layer with mock data and operations:
+## Project Structure 📁
 
-- **`ActivityService.java`**
-  - Contains mock activity data initialization
-  - Implements search filtering logic
-  - Handles availability checking and reservation logic
+```
+src/
+├── main/java/com/example/mock/
+│   ├── controller/          # REST controllers
+│   ├── service/            # Business logic
+│   ├── dto/               # Data transfer objects
+│   └── VoyageurMockApplication.java
+└── resources/
+    ├── static/            # Mock JSON data
+    │   ├── flights.json
+    │   ├── hotels.json
+    │   ├── cars.json
+    │   └── activities.json
+    └── application.properties
+```
 
-- **`CarService.java`**
-  - Contains mock car rental data
-  - Implements car search and filtering
-  - Manages car availability and reservations
+## Features Implemented ✅
 
-- **`FlightService.java`**
-  - Contains mock flight data with realistic schedules
-  - Implements flight search functionality
-  - Handles seat availability and booking logic
+### Week 1: Mock Services + Basic Search
+- ✅ Mock controllers for all services
+- ✅ Static JSON data loading
+- ✅ Basic filtering by location, price range
+- ✅ Availability endpoints
 
-- **`HotelService.java`**
-  - Contains mock hotel data
-  - Implements hotel search and filtering
-  - Manages room availability and reservations
+### Week 2: Search Aggregation + Inventory
+- ✅ Unified search endpoint
+- ✅ Sorting by price, rating
+- ✅ Simple inventory management with ConcurrentHashMap
+- ✅ Mock booking functionality
 
-#### DTOs (`src/main/java/com/bookingsystem/dto/`)
-Data Transfer Objects for API responses:
+### Week 3: Documentation + Testing
+- ✅ Swagger/OpenAPI documentation
+- ✅ Clean API structure
+- ✅ Ready for Postman testing
 
-- **`SearchResponse.java`**
-  - Generic wrapper for search results
-  - Contains results list, pagination info, and search metadata
-  - Used by all search endpoints for consistent response format
+## Testing with Postman 📮
 
-#### Configuration (`src/main/resources/`)
+Import these URLs into Postman:
 
-- **`application.properties`**
-  - Spring Boot application configuration
-  - Server port (8080), context path, application name
-  - JSON serialization settings
-  - Logging configuration for debugging
+1. **Get All Flights**: `GET http://localhost:8080/flights`
+2. **Search NYC Hotels**: `GET http://localhost:8080/hotels?location=NYC`
+3. **Check Availability**: `GET http://localhost:8080/flights/availability?id=F001`
+4. **Book Flight**: `POST http://localhost:8080/flights/book?id=F001`
+5. **Unified Search**: `GET http://localhost:8080/search?type=all&location=NYC`
 
-## API Endpoints
+## Mock Data 📊
 
-### Activities
-- `GET /api/activities/search` - Search activities with filters
-- `GET /api/activities/{id}` - Get activity details
-- `GET /api/activities/{id}/availability` - Check availability
-- `POST /api/activities/{id}/reserve` - Reserve activity
+The app includes realistic mock data for:
+- 4 Flights (NYC↔LAX, NYC→MIA, CHI→LAX)
+- 4 Hotels (NYC, Miami, Chicago)
+- 4 Cars (Different types and locations)
+- 4 Activities (Tours, shows, sports, culture)
 
-### Cars
-- `GET /api/cars/search` - Search cars with filters
-- `GET /api/cars/{id}` - Get car details
-- `GET /api/cars/{id}/availability` - Check availability
-- `POST /api/cars/{id}/reserve` - Reserve car
+All data includes pricing, availability, and relevant details!
 
-### Flights
-- `GET /api/flights/search` - Search flights with filters
-- `GET /api/flights/{id}` - Get flight details
-- `GET /api/flights/{id}/availability` - Check seat availability
-- `POST /api/flights/{id}/reserve` - Reserve flight
+## Next Steps 🚀
 
-### Hotels
-- `GET /api/hotels/search` - Search hotels with filters
-- `GET /api/hotels/{id}` - Get hotel details
-- `GET /api/hotels/{id}/availability` - Check room availability
-- `POST /api/hotels/{id}/reserve` - Reserve hotel
+- Add more realistic mock data
+- Implement date-based filtering
+- Add pagination for large result sets
+- Create a simple frontend
+- Deploy to cloud platform
 
-## Features
+---
 
-- **Mock Data**: Pre-populated with realistic sample data for all services
-- **Search & Filter**: Advanced filtering capabilities for each service type
-- **Availability Checking**: Real-time availability simulation
-- **Reservation System**: Mock booking with unique reservation IDs
-- **CORS Enabled**: Cross-origin requests allowed for frontend integration
-- **Consistent API**: Uniform response format across all endpoints
-- **Error Handling**: Proper HTTP status codes and error responses
-
-## Running the Application
-
-1. Ensure Java 17+ is installed
-2. Run `mvn clean install` to build the project
-3. Run `mvn spring-boot:run` or execute the main class
-4. Application will start on `http://localhost:8080`
-5. Test endpoints using tools like Postman or curl
-
-## Technology Stack
-
-- **Java 17**
-- **Spring Boot 3.2.0**
-- **Spring Web MVC**
-- **Jackson** for JSON processing
-- **Maven** for dependency management
-- **Embedded Tomcat** server
-
-## Development Notes
-
-- All data is stored in-memory and resets on application restart
-- No database integration - purely mock services
-- Designed for MVP/prototype development
-- Ready for frontend integration with CORS support
-- Easily extensible for additional booking services
+**Built with ❤️ for the Voyageur travel booking app**
